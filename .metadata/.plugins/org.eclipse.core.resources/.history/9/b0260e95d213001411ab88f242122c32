@@ -1,0 +1,104 @@
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrrap_content"
+    android:scrollbars="none"
+    android:layout_weight="1">
+    
+    
+        <TableLayout 
+	    android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center"
+    	android:stretchColumns="*">
+	
+        <TableRow>
+		<TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Name"
+        android:layout_marginTop="10dp" />
+
+        <EditText
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/pname"
+        android:layout_marginTop="10dp" />
+        </TableRow>
+
+        <TableRow>
+		<TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Type"
+        android:layout_marginTop="10dp" />
+
+
+	     <Spinner
+	        android:id="@+id/ptypes"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:entries="@array/types"
+	        android:layout_marginTop="10dp"  >
+	    </Spinner>
+	            
+	     </TableRow>
+        
+        <TableRow>
+	   	<TextView
+        android:text="Host"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="10dp" />
+		
+		<EditText
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/phost" 
+        android:layout_marginTop="10dp" />
+	   	</TableRow>
+	   	 <TableRow>
+	   	<TextView
+        android:text="Username"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="10dp" />
+		
+		<EditText
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/puser" 
+        android:layout_marginTop="10dp" />
+	   	</TableRow>
+	   	 <TableRow>
+	   	<TextView
+        android:text="Password"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="10dp" />
+		
+		<EditText
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/ppass" 
+        android:layout_marginTop="10dp" />
+	   	</TableRow>
+	   	<TableRow >
+    	<TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="TCP Port"
+        android:layout_marginTop="10dp" />
+   		 <EditText
+        android:inputType="number"
+        android:maxLength="5"
+        android:id="@+id/ptcp"
+        android:layout_marginTop="10dp"  />
+   		 </TableRow>	   	<TableRow >
+    	<TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="TOMCAT"
+        android:layout_marginTop="10dp" />
+   		 <EditText
+        android:inputType="number"
+        android:maxLength="5"
+        android:id="@+id/ptom"
+        android:layout_marginTop="10dp"  />
+   		 </TableRow>
+   		 </TableLayout>
+   		 
+</ScrollView>

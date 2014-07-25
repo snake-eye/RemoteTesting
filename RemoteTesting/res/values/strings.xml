@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RemoteTesting</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+	<string-array name="titles">
+        <item>Home</item>
+        <item>Products</item>
+        <item>Execution</item>
+        <item>Reports</item>
+    </string-array>
+
+    <array name="icons">
+        <item>@drawable/d1</item>
+        <item>@drawable/d2</item>
+        <item>@drawable/d3</item>
+    </array>
+    <string-array name="types">
+        <item>Automation</item>
+        <item>Installation</item>
+        <item>Reports</item>
+	</string-array>
+    
+</resources>
