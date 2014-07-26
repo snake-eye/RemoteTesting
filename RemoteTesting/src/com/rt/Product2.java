@@ -2,8 +2,6 @@ package com.rt;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,7 +15,7 @@ import android.widget.Toast;
 import com.rt.db.Product;
 import com.rt.db.Product.ProductRepo;
 
-public class Product2 extends Fragment implements TextWatcher{
+public class Product2 extends Fragment{
 
 	int pid;
     EditText pname;
@@ -47,7 +45,7 @@ public class Product2 extends Fragment implements TextWatcher{
         ptom= (EditText) v.findViewById(R.id.ptom);
         types = (Spinner) v.findViewById(R.id.ptypes);
         
-        pid=((MainActivity)getActivity()).pid;
+        pid=MainActivity.pid;
         ProductRepo repo = new ProductRepo(getActivity());
         Product product = new Product();
         product = repo.getProductById(pid);
@@ -80,62 +78,47 @@ public class Product2 extends Fragment implements TextWatcher{
     	MenuItem done = menu.add(Menu.NONE, 1, 3, "Done");			//1 means id for edit
         //menu.add(group of menu,id,order,text(title))
         done.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-		done.setIcon(R.drawable.ic_action_accept);	
-		
+		done.setIcon(R.drawable.ic_action_acceptw);	
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		ProductRepo repo = new ProductRepo(getActivity());
-    	
-		switch (item.getItemId()) {
+    	switch (item.getItemId()) {
 	  		case 1: 	//Done
-		    			Product product = new Product();
-		    			product.pname=pname.getText().toString();
-		    			product.phost=phost.getText().toString();
-		    			product.puser=puser.getText().toString();
-		    			product.ppass=ppass.getText().toString();
-		    			product.ptcp=ptcp.getText().toString();
-		    			product.ptom=ptom.getText().toString();
-		    			
-		    			product.ptype=types.getSelectedItem().toString();
-		    			product.pid=pid;
-		    			if (pid==0){
-		    				pid = repo.insert(product);
-		    				((MainActivity)getActivity()).updateDisplay(1);
-		        			Toast.makeText(getActivity(),"New Product Insert",Toast.LENGTH_SHORT).show();
-		    			}else{
-		        			repo.update(product);
-		        			((MainActivity)getActivity()).newfrag(2, pid);
-		        			Toast.makeText(getActivity(),"Product Record updated",Toast.LENGTH_SHORT).show();
+	  					boolean flag=true;
+	  					if(pname.getText().toString().isEmpty()){flag=false;Toast.makeText(getActivity(),"Please enter name",Toast.LENGTH_SHORT).show();}
+	  					else if(phost.getText().toString().isEmpty()){flag=false;Toast.makeText(getActivity(),"Please enter host",Toast.LENGTH_SHORT).show();}
+	  					else if(puser.getText().toString().isEmpty()){flag=false;Toast.makeText(getActivity(),"Please enter user",Toast.LENGTH_SHORT).show();}
+	  					else if(ppass.getText().toString().isEmpty()){flag=false;Toast.makeText(getActivity(),"Please enter password",Toast.LENGTH_SHORT).show();}
+	  					else if(ptcp.getText().toString().isEmpty()){flag=false;Toast.makeText(getActivity(),"Please enter TCP port",Toast.LENGTH_SHORT).show();}
+	  					else if(ptom.getText().toString().isEmpty()){flag=false;Toast.makeText(getActivity(),"Please enter tpmcat port",Toast.LENGTH_SHORT).show();}
+		    			if(flag){
+			  					Product product = new Product();
+				    			product.pname=pname.getText().toString();
+				    			product.phost=phost.getText().toString();
+				    			product.puser=puser.getText().toString();
+				    			product.ppass=ppass.getText().toString();
+				    			product.ptcp=ptcp.getText().toString();
+				    			product.ptom=ptom.getText().toString();
+				    			
+				    			product.ptype=types.getSelectedItem().toString();
+				    			product.pid=pid;
+				    			if (pid==0){
+				    				pid = repo.insert(product);
+				    				((MainActivity)getActivity()).updateDisplay(1);
+				        			Toast.makeText(getActivity(),"New Product Inserted",Toast.LENGTH_SHORT).show();
+				    			}else{
+				        			repo.update(product);
+				        			((MainActivity)getActivity()).newfrag(2, pid);
+				        			Toast.makeText(getActivity(),"Product Record updated",Toast.LENGTH_SHORT).show();
+				    			}
+				    			getActivity().onBackPressed();
+				    			getActivity().onBackPressed();
+				    			return true;	//If performed successfully or pass to super
 		    			}
-		    			getActivity().onBackPressed();
-		    			getActivity().onBackPressed();
-		    			return true;	//If performed successfully or pass to super
-			  				
-	  		default:
-	  					return super.onContextItemSelected(item);
+			  		default:
+			  					return super.onContextItemSelected(item);
 		}
-	}
-
-	
-	//////////////////////Textwatcher methods for validations
-	@Override
-	public void afterTextChanged(Editable arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-			int arg3) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
-		
-	}
+	}	
 }

@@ -28,8 +28,8 @@ import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity {
 	
-	String ptype=null;
-	int pid = 0; // for communication between fragments
+	static String ptype=null;
+	static int pid = 0; // for communication between fragments
 	public String[] menutitles;
 	TypedArray menuIcons;
 
@@ -148,7 +148,7 @@ public class MainActivity extends FragmentActivity {
 
 	// //Change fragment by a fragment
 	public void newfrag(int position, int id) {
-		this.pid = id;
+		MainActivity.pid = id;
 		Fragment fragment = null;
 		switch (position) {
 		case 1:

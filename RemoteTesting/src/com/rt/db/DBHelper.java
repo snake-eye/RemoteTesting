@@ -21,7 +21,7 @@ public class DBHelper  extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //All necessary tables you like to create will create here
 
-        String CREATE_TABLE_STUDENT = "CREATE TABLE " + Product.PRODUCT  + "("
+        String CREATE_TABLE_PRODUCT = "CREATE TABLE " + Product.PRODUCT  + "("
                 + Product.PID  + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
                 + Product.PNAME + " TEXT, "
                 + Product.PTYPE + " TEXT, "
@@ -31,14 +31,22 @@ public class DBHelper  extends SQLiteOpenHelper {
                 + Product.PTCP + " TEXT, "
                 + Product.PTOM + " TEXT)";
 
-        db.execSQL(CREATE_TABLE_STUDENT);
+        db.execSQL(CREATE_TABLE_PRODUCT);
+
+        String CREATE_TABLE_SUB = "CREATE TABLE " + Sub.SUB  + "("
+                + Sub.SID  + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
+                + Sub.SNAME + " TEXT, "
+                + Sub.PID + " INTEGER)";
+
+        db.execSQL(CREATE_TABLE_SUB);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed, all data will be gone!!!
-        db.execSQL("DROP TABLE IF EXISTS " + Product.PRODUCT);
+    	db.execSQL("DROP TABLE IF EXISTS " + Product.PRODUCT);
+    	db.execSQL("DROP TABLE IF EXISTS " + Sub.SUB);
 
         // Create tables again
         onCreate(db);
@@ -46,3 +54,14 @@ public class DBHelper  extends SQLiteOpenHelper {
     } 
 
 }
+
+
+
+
+
+
+
+
+
+
+

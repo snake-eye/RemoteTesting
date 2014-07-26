@@ -38,13 +38,12 @@ public class Product1 extends ListFragment
   	@Override
   	public void onActivityCreated (Bundle savedInstanceState){
   		 super.onActivityCreated(savedInstanceState);   
-  		 registerForContextMenu(getListView());
   		 ListAllProduct();
   	}
   	void AddProduct(){((MainActivity)getActivity()).newfrag(1, 0);}
   	void ListAllProduct(){
   		ProductRepo repo = new ProductRepo(getActivity());
-  		String ptype=((MainActivity)getActivity()).ptype;
+  		String ptype=MainActivity.ptype;
         ArrayList<HashMap<String, String>> items =  repo.getProductList(ptype);
         ListView lv = getListView();
         
@@ -61,7 +60,7 @@ public class Product1 extends ListFragment
 public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		MenuItem add = menu.add(Menu.NONE, 1, 3, "Add");			//1 means id for add
         add.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-		add.setIcon(R.drawable.ic_action_new);	
+		add.setIcon(R.drawable.ic_action_neww);	
 		
 		MenuItem listall = menu.add(Menu.NONE, 2, 3, "List All");	//2 means id for listall
 		listall.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
@@ -103,7 +102,6 @@ class PopupAdapter extends SimpleAdapter{
         TextView product_Id = (TextView) view.findViewById(R.id.product_Id);
     	final int pid=Integer.parseInt(product_Id.getText().toString());
         
-        popupButton.setTag(toolbar);
         popupButton.setOnClickListener(new OnClickListener(){@Override
         	public void onClick(final View view) {
                 	boolean SameItemClicked = false;
