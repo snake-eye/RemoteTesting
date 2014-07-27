@@ -28,7 +28,7 @@ public class Home extends Fragment implements OnClickListener{
 @Override
 public void onClick(View v) {
 	if(v.getId()==R.id.Exit){getActivity().finish();}
-	MainActivity.ptype= getResources().getResourceEntryName(v.getId());
-	((MainActivity)getActivity()).updateDisplay(1);
+	Main.ptype= getResources().getResourceEntryName(v.getId());
+	((Main)getActivity()).updateDisplay(1);
 }
 }

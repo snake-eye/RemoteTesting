@@ -40,10 +40,10 @@ public class Product1 extends ListFragment
   		 super.onActivityCreated(savedInstanceState);   
   		 ListAllProduct();
   	}
-  	void AddProduct(){((MainActivity)getActivity()).newfrag(1, 0);}
+  	void AddProduct(){((Main)getActivity()).newfrag(1, 0);}
   	void ListAllProduct(){
   		ProductRepo repo = new ProductRepo(getActivity());
-  		String ptype=MainActivity.ptype;
+  		String ptype=Main.ptype;
         ArrayList<HashMap<String, String>> items =  repo.getProductList(ptype);
         ListView lv = getListView();
         
@@ -81,7 +81,7 @@ public boolean onOptionsItemSelected(MenuItem item) {
 @Override
 public void onListItemClick(ListView listView, View view, int position, long id) {
 	TextView product_Id = (TextView) view.findViewById(R.id.product_Id);
-	((MainActivity)getActivity()).newfrag(2, Integer.parseInt(product_Id.getText().toString()));
+	((Main)getActivity()).newfrag(2, Integer.parseInt(product_Id.getText().toString()));
 }
 
 
@@ -126,13 +126,13 @@ class PopupAdapter extends SimpleAdapter{
     	
         pexec.setOnClickListener(new OnClickListener() {@Override
 			public void onClick(View v) {
-        	((MainActivity)getActivity()).newfrag(2,pid);
+        	((Main)getActivity()).newfrag(2,pid);
             }
         });
         
         pedit.setOnClickListener(new OnClickListener() {@Override
 			public void onClick(View v) {
-        	((MainActivity)getActivity()).newfrag(1,pid);
+        	((Main)getActivity()).newfrag(1,pid);
             }
         });
         
@@ -141,7 +141,7 @@ class PopupAdapter extends SimpleAdapter{
         	ProductRepo repo = new ProductRepo(getActivity());
   	    	repo.delete(pid);
   	    	Toast.makeText(getActivity(), "Product Record Deleted", Toast.LENGTH_SHORT).show();
-  	    	((MainActivity)getActivity()).updateDisplay(1);
+  	    	((Main)getActivity()).updateDisplay(1);
 			}
         });
         

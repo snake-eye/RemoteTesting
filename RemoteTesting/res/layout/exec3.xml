@@ -60,11 +60,18 @@
         android:visibility="gone" >
 
         <TextView
+            android:id="@+id/spn1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sub Name"
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
+		<TextView
+            android:id="@+id/spn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Command"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
         <EditText
             android:id="@+id/sname1"
             android:layout_width="wrap_content"
@@ -78,6 +85,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_action_accept" />
+        
+        <TextView
+            android:id="@+id/sdone2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_action_play"
+            android:visibility="gone" />
+        
     </LinearLayout>
 
 </LinearLayout>

@@ -45,7 +45,7 @@ public class Product2 extends Fragment{
         ptom= (EditText) v.findViewById(R.id.ptom);
         types = (Spinner) v.findViewById(R.id.ptypes);
         
-        pid=MainActivity.pid;
+        pid=Main.pid;
         ProductRepo repo = new ProductRepo(getActivity());
         Product product = new Product();
         product = repo.getProductById(pid);
@@ -106,11 +106,11 @@ public class Product2 extends Fragment{
 				    			product.pid=pid;
 				    			if (pid==0){
 				    				pid = repo.insert(product);
-				    				((MainActivity)getActivity()).updateDisplay(1);
+				    				((Main)getActivity()).updateDisplay(1);
 				        			Toast.makeText(getActivity(),"New Product Inserted",Toast.LENGTH_SHORT).show();
 				    			}else{
 				        			repo.update(product);
-				        			((MainActivity)getActivity()).newfrag(2, pid);
+				        			((Main)getActivity()).newfrag(2, pid);
 				        			Toast.makeText(getActivity(),"Product Record updated",Toast.LENGTH_SHORT).show();
 				    			}
 				    			getActivity().onBackPressed();
