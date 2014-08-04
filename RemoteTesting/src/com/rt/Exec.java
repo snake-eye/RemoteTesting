@@ -39,7 +39,7 @@ public class Exec extends Fragment implements ActionBar.TabListener {
 	public void onDestroyView() {
 		super.onDestroyView();
 		getActivity().getActionBar().setNavigationMode(mode);
-		Main.remote.disconnect();
+		//Main.remote.disconnect();
 	}
 
 	@Override
@@ -59,8 +59,8 @@ public class Exec extends Fragment implements ActionBar.TabListener {
 		if (product.pname != null) {
 			getActivity().getActionBar().setTitle(
 					"Execution : " + product.pname);
-			Main.remote.connect(product.phost, product.ptcp, product.puser,
-					product.ppass);
+			//Main.remote.connect(product.phost, product.ptcp, product.puser,product.ppass);
+			Main.rest.findjob(product);
 		}
 	}
 
@@ -192,8 +192,12 @@ public class Exec extends Fragment implements ActionBar.TabListener {
 			sadd.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(final View view) {
-					ListAnim expandAni = new ListAnim(stoolbar);
-					stoolbar.startAnimation(expandAni);
+					//ListAnim expandAni = new ListAnim(stoolbar);
+					//stoolbar.startAnimation(expandAni);
+					
+					Main.rest.build(product);
+					
+					
 				}
 			});
 
@@ -358,7 +362,8 @@ public class Exec extends Fragment implements ActionBar.TabListener {
 									"Please enter command", Toast.LENGTH_SHORT)
 									.show();
 						} else {
-							Main.remote.send(sname1.getText().toString());
+						//	Main.remote.send(sname1.getText().toString());
+						//s	Main.rest.build();
 						}
 					}
 				});

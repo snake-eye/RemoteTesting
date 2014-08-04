@@ -27,8 +27,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class Main extends FragmentActivity {
-	static Remote remote=new Remote();
-    static String ptype=null;
+	//static Remote remote=new Remote();
+	static Rest rest=new Rest();
+    
+	static String ptype=null;
 	static int pid = 0; // for communication between fragments
 	static TextView  progress=null;
 	public String[] menutitles;

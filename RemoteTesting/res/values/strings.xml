@@ -4,7 +4,8 @@
     <string name="app_name">RemoteTesting</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-	<string-array name="titles">
+
+    <string-array name="titles">
         <item>Home</item>
         <item>Products</item>
         <item>Execution</item>
@@ -16,10 +17,13 @@
         <item>@drawable/d2</item>
         <item>@drawable/d3</item>
     </array>
+
     <string-array name="types">
         <item>Automation</item>
         <item>Installation</item>
         <item>Reports</item>
-	</string-array>
-    
+    </string-array>
+
+    <string name="title_activity_rest">Rest</string>
+
 </resources>
